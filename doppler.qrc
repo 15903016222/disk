@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/browse.png</file>
+        <file>images/reload.png</file>
+    </qresource>
+</RCC>
