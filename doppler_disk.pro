@@ -32,9 +32,14 @@ FORMS    += mainwindow.ui
 RESOURCES += \
     doppler.qrc
 
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/quazip/ -lquazip
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/quazip/ -lquazipd
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/quazip -lquazip#C:/Users/xrz/Desktop/build-quazip-Desktop_Qt_5_4_1_MinGW_32bit-Release/quazip/release/ -lquazip
-else:unix: LIBS += -LC:/Users/xrz/Desktop/build-quazip-Desktop_Qt_5_4_1_MinGW_32bit-Release/quazip/ -lquazip
+INCLUDEPATH += $$PWD/lib/quazip/include
+DEPENDPATH += $$PWD/lib/quazip/include
 
-INCLUDEPATH += $$PWD/quazip/quazip#C:/Users/xrz/Desktop/quazip-0.7.2/quazip
-DEPENDPATH += $$PWD/quazip/quazip#C:/Users/xrz/Desktop/quazip-0.7.2/quazip
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/zlib/ -lzlib
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/zlib/ -lzlibd
+
+INCLUDEPATH += $$PWD/lib/zlib/include
+DEPENDPATH += $$PWD/lib/zlib/include

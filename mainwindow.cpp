@@ -23,9 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    qDebug()<<"hhhhhhhhhhh";
+
     setFixedSize(425,240);
-    setWindowTitle("DopplerDisk");
+    setWindowTitle("DopplerDisk-0.1");
     elapsed_timer = new ElapsedTimer();
     ui->statusBar->addPermanentWidget(elapsed_timer);
     getLogicalDrives();
