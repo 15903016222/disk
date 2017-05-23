@@ -43,3 +43,10 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/zlib/ -lzlibd
 
 INCLUDEPATH += $$PWD/lib/zlib/include
 DEPENDPATH += $$PWD/lib/zlib/include
+
+DISTFILES += \
+    manifest.xml
+
+win32:CONFIG(release, debug|release): QMAKE_POST_LINK+=mt -manifest $$PWD/manifest.xml -outputresource:$$OUT_PWD/release/$$TARGET".exe"$$escape_expand(\n\t)
+else:win32:CONFIG(debug, debug|release): QMAKE_POST_LINK+=mt -manifest $$PWD/manifest.xml -outputresource:$$OUT_PWD/debug/$$TARGET".exe"$$escape_expand(\n\t)
+
